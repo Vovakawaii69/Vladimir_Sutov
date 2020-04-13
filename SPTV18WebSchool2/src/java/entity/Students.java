@@ -14,9 +14,9 @@ public class Students implements Serializable{
     private Long id;
     private String fName;
     private String lName;
-    private int age;
+    private String age;
     
-    public Students(String fName, String lName, int age) {
+    public Students(String fName, String lName, String age) {
         this.fName = fName;
         this.lName = lName;
         this.age = age;
@@ -49,28 +49,29 @@ public class Students implements Serializable{
         this.lName = lName;
         }
     
-    public int getAge(int age){
+    public String getAge(String age){
         return age;
     }
     
-    public void setAge(int age){
+    public void setAge(String age){
         this.age = age;
     }
 
     @Override
     public String toString() {
-        return "Students{" + "id=" + id + ", fName=" + fName + ", lName=" + lName + ", age=" + age + '}';
+        return "Students{" + "fName=" + fName + ", lName=" + lName + ", age=" + age + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.id);
-        hash = 97 * hash + Objects.hashCode(this.fName);
-        hash = 97 * hash + Objects.hashCode(this.lName);
-        hash = 97 * hash + this.age;
+        hash = 83 * hash + Objects.hashCode(this.id);
+        hash = 83 * hash + Objects.hashCode(this.fName);
+        hash = 83 * hash + Objects.hashCode(this.lName);
+        hash = 83 * hash + Objects.hashCode(this.age);
         return hash;
     }
+    
 
     @Override
     public boolean equals(Object obj) {
@@ -84,13 +85,13 @@ public class Students implements Serializable{
             return false;
         }
         final Students other = (Students) obj;
-        if (this.age != other.age) {
-            return false;
-        }
         if (!Objects.equals(this.fName, other.fName)) {
             return false;
         }
         if (!Objects.equals(this.lName, other.lName)) {
+            return false;
+        }
+        if (!Objects.equals(this.age, other.age)) {
             return false;
         }
         if (!Objects.equals(this.id, other.id)) {
@@ -98,6 +99,5 @@ public class Students implements Serializable{
         }
         return true;
     }
-    
     
 }
